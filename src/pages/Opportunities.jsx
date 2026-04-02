@@ -8,11 +8,13 @@ const Opportunities = () => {
       { id: 1, title: 'NC II Shielded Metal Arc Welding', provider: 'TESDA', duration: '3 Months', status: 'Open', icon: 'construction' },
       { id: 2, title: 'Basic Computer Literacy', provider: 'Barangay Council', duration: '2 Weeks', status: 'Upcoming', icon: 'computer' },
       { id: 3, title: 'Bread and Pastry Production', provider: 'Local Livelihood Center', duration: '1 Month', status: 'Ongoing', icon: 'bakery_dining' },
+      { id: 4, title: 'Electronic Products Assembly', provider: 'TESDA', duration: '2 Months', status: 'Open', icon: 'memory' },
     ],
     Employment: [
-      { id: 4, title: 'Construction Worker', company: 'Build-Right Inc.', location: 'Poblacion', type: 'Full-time', icon: 'engineering' },
-      { id: 5, title: 'Service Crew', company: 'FastFood Co.', location: 'Town Plaza', type: 'Part-time', icon: 'restaurant' },
-      { id: 6, title: 'Delivery Rider', company: 'QuickLogistics', location: 'Barangay-wide', type: 'Flexible', icon: 'delivery_dining' },
+      { id: 5, title: 'Construction Worker', company: 'Build-Right Inc.', location: 'Poblacion', type: 'Full-time', icon: 'engineering' },
+      { id: 6, title: 'Service Crew', company: 'FastFood Co.', location: 'Town Plaza', type: 'Part-time', icon: 'restaurant' },
+      { id: 7, title: 'Delivery Rider', company: 'QuickLogistics', location: 'Barangay-wide', type: 'Flexible', icon: 'delivery_dining' },
+      { id: 8, title: 'Inventory Assistant', company: 'Local Mart', location: 'Purok 4', type: 'Full-time', icon: 'inventory' },
     ]
   };
 
@@ -63,7 +65,7 @@ const Opportunities = () => {
             </div>
             <div className="flex-1">
               <div className="flex justify-between items-start mb-1">
-                <h3 className="font-bold text-lg text-on-surface">{opp.title}</h3>
+                <h3 className="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">{opp.title}</h3>
                 {opp.status && (
                   <span className={`px-2 py-1 rounded text-[10px] font-black uppercase tracking-tighter ${getStatusColor(opp.status)}`}>
                     {opp.status}

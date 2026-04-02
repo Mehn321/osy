@@ -59,13 +59,13 @@ const MatchingPage = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Matching Engine</span>
+        <span>Barangay OSY</span>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Skills Alignment Analysis</span>
       </nav>
 
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        <div className="lg:col-span-2 rounded-xl bg-surface-container-lowest p-8 border border-slate-200/10 shadow-sm relative overflow-hidden">
+        <div className="lg:col-span-2 rounded-xl bg-surface-container-lowest p-8 border border-outline-variant/15 shadow-sm relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <span className="material-symbols-outlined text-8xl">verified</span>
           </div>
@@ -160,7 +160,7 @@ const MatchingPage = () => {
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-on-surface">{candidate.name}</h4>
+                  <h4 className="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">{candidate.name}</h4>
                   <p className="text-xs text-on-surface-variant font-medium tracking-wide">{candidate.purok}</p>
                 </div>
               </div>
@@ -221,7 +221,7 @@ const MatchingPage = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-lg text-on-surface">{candidate.name}</h4>
+                  <h4 className="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">{candidate.name}</h4>
                   <p className="text-xs text-on-surface-variant font-medium tracking-wide">{candidate.purok}</p>
                 </div>
               </div>
@@ -287,7 +287,7 @@ const MatchingPage = () => {
           { icon: 'auto_awesome', value: '34', label: 'Upskill Potential', color: 'bg-secondary-fixed', textColor: 'text-on-secondary-fixed' },
           { icon: 'trending_up', value: '82%', label: 'Avg. Score', color: 'bg-primary-container', textColor: 'text-white' },
         ].map((item, idx) => (
-          <div key={idx} className="p-6 rounded-xl glass-panel border border-white/20 shadow-sm flex flex-col gap-2">
+          <div key={idx} className="p-6 rounded-xl glass-panel border border-outline-variant/15 shadow-sm flex flex-col gap-2">
             <div className={`w-10 h-10 rounded-full ${item.color} flex items-center justify-center ${item.textColor} mb-2`}>
               <span className="material-symbols-outlined">{item.icon}</span>
             </div>

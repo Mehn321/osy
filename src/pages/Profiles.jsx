@@ -9,6 +9,8 @@ const Profiles = () => {
     { id: 2, name: 'Maria Santos', purok: 'Purok 1', status: 'Active', skills: ['Customer Service', 'Food Prep'], image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC8pvvvAcFqXnuCx52Ek1i9uckk5FLVkY9wljfqNqTmwaPS7u3-_9nTy2tjV4vlJXy6b6Qf9dP9fMFMULAdD_QAuENDCC7Qm5MtbWkPUs-d70vFoas5shjHJ1DJlSMUlho5q2pZo5Dlmd7etTyvDhYUCflA4AGEinTS7A952xbTLBuOwlSa4MMjZIIrhBODVgIsK01kqBTa8BqSmF1JIkb3EoDXqHx8TCRTjBTYeI1dFLUnN5W0sUsFsKPEQk9258iyosMXblSUFoVf' },
     { id: 3, name: 'Ricardo Bautista', purok: 'Purok 7', status: 'Employed', skills: ['Inventory', 'Logistics'], image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3dxW9WQ_lCPrJx9O3OSRavPX-LAwokspC-UqIukX7Afl72IkgxYgLYhB9I3iP9bHHN9-xKstknE9Kk87TJYekOPRm-RPEhCCZJUl3qXdeuya_mopY0ZCY0MVp85dgkznbO3pkmy2T9rS5lTrAHaLZ5K6smLcP6NeKrnDuJ6OP5DuH9Hh99LHsX1XpJWMw0-KS6tnALJsS2QvYl7X95i15UN-Utgpd5A3gHtm9dfgpu2NJdo23N33BEhblx6ywlzYreWXS8srK8fk9' },
     { id: 4, name: 'Ana Rivera', purok: 'Purok 2', status: 'Active', skills: ['Welding', 'Drafting'], image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC8pvvvAcFqXnuCx52Ek1i9uckk5FLVkY9wljfqNqTmwaPS7u3-_9nTy2tjV4vlJXy6b6Qf9dP9fMFMULAdD_QAuENDCC7Qm5MtbWkPUs-d70vFoas5shjHJ1DJlSMUlho5q2pZo5Dlmd7etTyvDhYUCflA4AGEinTS7A952xbTLBuOwlSa4MMjZIIrhBODVgIsK01kqBTa8BqSmF1JIkb3EoDXqHx8TCRTjBTYeI1dFLUnN5W0sUsFsKPEQk9258iyosMXblSUFoVf' },
+    { id: 5, name: 'Elena Gomez', purok: 'Purok 3', status: 'In Training', skills: ['Hospitality'], image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC8pvvvAcFqXnuCx52Ek1i9uckk5FLVkY9wljfqNqTmwaPS7u3-_9nTy2tjV4vlJXy6b6Qf9dP9fMFMULAdD_QAuENDCC7Qm5MtbWkPUs-d70vFoas5shjHJ1DJlSMUlho5q2pZo5Dlmd7etTyvDhYUCflA4AGEinTS7A952xbTLBuOwlSa4MMjZIIrhBODVgIsK01kqBTa8BqSmF1JIkb3EoDXqHx8TCRTjBTYeI1dFLUnN5W0sUsFsKPEQk9258iyosMXblSUFoVf' },
+    { id: 6, name: 'Pedro Penduko', purok: 'Purok 5', status: 'Active', skills: ['Carpentry'], image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3dxW9WQ_lCPrJx9O3OSRavPX-LAwokspC-UqIukX7Afl72IkgxYgLYhB9I3iP9bHHN9-xKstknE9Kk87TJYekOPRm-RPEhCCZJUl3qXdeuya_mopY0ZCY0MVp85dgkznbO3pkmy2T9rS5lTrAHaLZ5K6smLcP6NeKrnDuJ6OP5DuH9Hh99LHsX1XpJWMw0-KS6tnALJsS2QvYl7X95i15UN-Utgpd5A3gHtm9dfgpu2NJdo23N33BEhblx6ywlzYreWXS8srK8fk9' },
   ];
 
   const filteredProfiles = profiles.filter(p => {
@@ -82,7 +84,7 @@ const Profiles = () => {
               <div className="flex items-center gap-4 mb-4">
                 <img src={profile.image} alt={profile.name} className="w-16 h-16 rounded-full object-cover border-2 border-primary/10" />
                 <div>
-                  <h3 className="font-bold text-lg text-on-surface">{profile.name}</h3>
+                  <h3 className="font-bold text-lg text-on-surface group-hover:text-primary transition-colors">{profile.name}</h3>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{profile.purok}</p>
                 </div>
               </div>

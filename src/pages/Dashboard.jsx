@@ -28,7 +28,7 @@ const Dashboard = () => {
 
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         {stats.map((stat, idx) => (
-          <div key={idx} className="p-6 rounded-xl glass-panel border border-white/20 shadow-sm flex flex-col gap-2">
+          <div key={idx} className="p-6 rounded-xl glass-panel border border-outline-variant/15 shadow-sm flex flex-col gap-2">
             <div className={`w-12 h-12 rounded-full ${stat.color} flex items-center justify-center ${stat.textColor} mb-2`}>
               <span className="material-symbols-outlined text-2xl">{stat.icon}</span>
             </div>
