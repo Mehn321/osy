@@ -44,7 +44,7 @@ const Dashboard = () => {
         <section className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-4">
             <h2 className="text-xl font-bold text-on-surface">Skills Distribution</h2>
-            <Link to="/reports" className="text-sm font-bold text-primary hover:underline">View All</Link>
+            <Link to="/reports" className="text-sm font-bold text-primary hover:underline">View Analytics</Link>
           </div>
           <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 space-y-4">
             {[

@@ -41,17 +41,17 @@ const OSYRegistry = () => {
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <Link to="/profiles" className="hover:text-primary transition-colors">OSY Profiles</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
-        <span className="text-primary">New Registration</span>
+        <span className="text-primary">Education & Skills Form</span>
       </nav>
 
       <header className="flex justify-between items-center bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant/15 shadow-sm">
         <div className="flex items-center gap-6">
           <div className="w-16 h-16 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
-            <span className="material-symbols-outlined text-4xl">person_add</span>
+            <span className="material-symbols-outlined text-4xl">fact_check</span>
           </div>
           <div>
-            <h1 className="text-3xl font-black text-primary mb-1 tracking-tight">OSY Registry</h1>
-            <p className="text-on-surface-variant font-medium">New registration for out-of-school youth profiling.</p>
+            <h1 className="text-3xl font-black text-primary mb-1 tracking-tight">OSY Education & Skills Form</h1>
+            <p className="text-on-surface-variant font-medium">Standardized profiling form for education and skill identification.</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

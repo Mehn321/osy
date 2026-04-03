@@ -101,9 +101,12 @@ const Profiles = () => {
               </div>
             </div>
             <div className="px-6 py-4 bg-slate-50 border-t border-outline-variant/10 flex justify-between gap-2">
-              <button className="flex-1 py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors border border-primary/20">
+              <Link
+                to={`/profiles/${profile.id}`}
+                className="flex-1 py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors border border-primary/20 flex items-center justify-center"
+              >
                 View Profile
-              </button>
+              </Link>
               <button className="px-3 py-2 text-on-surface-variant hover:bg-slate-200 rounded-lg">
                 <span className="material-symbols-outlined text-sm">edit</span>
               </button>

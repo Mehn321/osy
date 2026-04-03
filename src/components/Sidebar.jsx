@@ -4,10 +4,10 @@ const Sidebar = () => {
   const navItems = [
     { name: 'Dashboard', icon: 'dashboard', path: '/' },
     { name: 'OSY Profiles', icon: 'group', path: '/profiles' },
-    { name: 'Opportunities', icon: 'work', path: '/opportunities' },
+    { name: 'Opportunity Hub', icon: 'hub', path: '/opportunities' },
     { name: 'Matching', icon: 'psychology', path: '/matching' },
     { name: 'Notifications', icon: 'notifications', path: '/notifications' },
-    { name: 'Reports', icon: 'assessment', path: '/reports' },
+    { name: 'Reporting', icon: 'assessment', path: '/reports' },
   ];
 
   return (
