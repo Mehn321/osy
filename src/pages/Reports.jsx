@@ -13,12 +13,12 @@ const Reports = () => {
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
         <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
-        <span className="text-primary">Reports & Analytics</span>
+        <span className="text-primary">Reporting & Analytics</span>
       </nav>
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-primary">Reports & Analytics</h1>
-        <p className="text-on-surface-variant font-medium">Analyze youth progress and program effectiveness through data visualization.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight text-primary">Reporting & Analytics</h1>
+        <p className="text-on-surface-variant font-medium">Analyze youth progress and program effectiveness through standardized data visualization.</p>
       </header>
 
       {/* Visual Analytics Section */}

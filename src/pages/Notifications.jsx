@@ -21,7 +21,13 @@ const Notifications = () => {
           <h1 className="text-3xl font-extrabold tracking-tight text-primary">Notifications</h1>
           <p className="text-on-surface-variant">Stay updated on matching results and system activity.</p>
         </div>
-        <button className="text-sm font-bold text-primary hover:underline">Mark all as read</button>
+        <div className="flex gap-4">
+          <Link to="/notifications/templates" className="px-4 py-2 bg-primary/5 text-primary text-sm font-bold rounded-lg hover:bg-primary/10 transition-all flex items-center gap-2">
+            <span className="material-symbols-outlined text-lg">description</span>
+            Manage Templates
+          </Link>
+          <button className="text-sm font-bold text-primary hover:underline">Mark all as read</button>
+        </div>
       </header>
 
       <div className="space-y-4 max-w-3xl">

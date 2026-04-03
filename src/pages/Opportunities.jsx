@@ -33,12 +33,12 @@ const Opportunities = () => {
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
         <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
-        <span className="text-primary">Opportunities</span>
+        <span className="text-primary">Opportunity Hub</span>
       </nav>
 
       <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-primary">Opportunities</h1>
-        <p className="text-on-surface-variant">Training programs and employment vacancies for youth.</p>
+        <h1 className="text-3xl font-extrabold tracking-tight text-primary">Opportunity Hub: Jobs & Training</h1>
+        <p className="text-on-surface-variant">Central portal for training programs and employment vacancies.</p>
       </header>
 
       <div className="flex gap-4 mb-8 border-b border-outline-variant/30">

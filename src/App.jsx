@@ -11,6 +11,8 @@ import Help from './pages/Help';
 import Settings from './pages/Settings';
 import Logout from './pages/Logout';
 import SignIn from './pages/SignIn';
+import NotificationTemplates from './pages/NotificationTemplates';
+import ProfileDetail from './pages/ProfileDetail';
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
           <Route path="opportunities" element={<Opportunities />} />
           <Route path="matching" element={<MatchingPage />} />
           <Route path="notifications" element={<Notifications />} />
+          <Route path="notifications/templates" element={<NotificationTemplates />} />
           <Route path="reports" element={<Reports />} />
+          <Route path="profiles/:id" element={<ProfileDetail />} />
           <Route path="help" element={<Help />} />
           <Route path="settings" element={<Settings />} />
           <Route path="logout" element={<Logout />} />
