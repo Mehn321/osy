@@ -1,74 +1,71 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const navItems = [
-    { name: 'Dashboard', icon: 'dashboard', path: '/' },
-    { name: 'OSY Profiles', icon: 'group', path: '/profiles' },
-    { name: 'Opportunity Hub', icon: 'hub', path: '/opportunities' },
-    { name: 'Matching', icon: 'psychology', path: '/matching' },
-    { name: 'Notifications', icon: 'notifications', path: '/notifications' },
-    { name: 'Reporting', icon: 'assessment', path: '/reports' },
+    { name: 'Dashboard', icon: 'dashboard', path: '/dashboard' },
+    { name: 'OSY Profiles', icon: 'group', path: '/dashboard/profiles' },
+    { name: 'Opportunities', icon: 'work', path: '/dashboard/opportunities' },
+    { name: 'Matching', icon: 'psychology', path: '/dashboard/matching' },
+    { name: 'Notifications', icon: 'notifications', path: '/dashboard/notifications' },
+    { name: 'Reports', icon: 'assessment', path: '/dashboard/reports' },
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-slate-50 dark:bg-slate-950 w-64 border-r border-slate-200/15 z-[60] font-inter text-sm antialiased">
-      <Link to="/" className="flex items-center gap-3 mb-8 px-2">
-        <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center overflow-hidden shrink-0">
-          <img
-            alt="Barangay Seal"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwJMl_GDxSqMVxZsKLdlN8PDTDbruUZkFn4FR-Nyky4TbTxz5ADSTEDD9MbhDvIDmZt8Yv1VwBcdUqXJYdboig0ywaKBiohb4kK_GYuSByquyA5VYH7b9XJpLtsTYNVZ3j4ND0Y7hhe1pw9Qt-X0fVkm2XvAskIZj4z-jAyESL2eWuuNRjJeTyks8G40H5TiKniciPfvQJSFMpIiMLJaBs3aDQWapnQQjGQofxcRkaq_u5C4se0oMD-ilOHLV3wxMKGxkFDDUZhFm_"
-          />
+    <aside className="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-slate-50 dark:bg-slate-950 w-64 border-r border-slate-200/15 z-50 font-inter antialiased">
+      <div className="flex items-center gap-3 px-2 py-4 mb-6">
+        <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-lg">
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>account_balance</span>
         </div>
         <div>
-          <h2 className="font-bold text-primary dark:text-blue-200 leading-none">Barangay OSY</h2>
-          <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Profiling System</p>
+          <h1 className="font-bold text-blue-900 dark:text-blue-200 leading-none">Barangay OSY</h1>
+          <p className="text-xs text-slate-500 font-medium uppercase tracking-widest mt-1">Profiling System</p>
         </div>
-      </Link>
-      <nav className="flex-1 space-y-1">
+      </div>
+
+      <nav className="flex-1 flex flex-col gap-1">
         {navItems.map((item) => (
           <NavLink
             key={item.name}
             to={item.path}
-            end={item.path === '/'}
+            end={item.path === '/dashboard'}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2 rounded-lg hover:translate-x-1 transition-all ${
+              `flex items-center gap-3 px-3 py-2 rounded-lg transition-transform duration-200 hover:translate-x-1 ${
                 isActive
-                  ? 'bg-white dark:bg-slate-900 text-primary dark:text-blue-300 font-bold shadow-sm'
+                  ? 'bg-white dark:bg-slate-900 text-blue-800 dark:text-blue-300 font-bold shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'
               }`
             }
           >
-            {({ isActive }) => (
-              <>
-                <span
-                  className="material-symbols-outlined text-xl"
-                  style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}
-                >
-                  {item.icon}
-                </span>
-                <span>{item.name}</span>
-              </>
-            )}
+            <span className="material-symbols-outlined">{item.icon}</span>
+            <span className="text-sm">{item.name}</span>
           </NavLink>
         ))}
       </nav>
-      <div className="mt-auto pt-4 border-t border-slate-200/10 space-y-1">
-        <Link
-          to="/matching"
-          className="w-full mb-4 py-2.5 bg-gradient-to-r from-primary to-primary-container text-white rounded-lg font-semibold flex items-center justify-center gap-2 active:scale-95 transition-transform"
+
+      <div className="mt-auto pt-4 border-t border-slate-200/50 flex flex-col gap-1">
+        <button
+          className="mb-4 w-full bg-gradient-to-r from-primary to-primary-container text-white py-2.5 rounded-lg font-semibold text-sm shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
         >
-          <span className="material-symbols-outlined text-lg">bolt</span>
-          <span>Match Skills</span>
-        </Link>
-        <NavLink to="/help" className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition-all ${
-          isActive ? 'bg-white text-primary font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'
-        }`}>
-          <span className="material-symbols-outlined text-xl">help</span>
-          <span>Help Center</span>
+          <span className="material-symbols-outlined text-sm">auto_awesome</span>
+          Match Skills
+        </button>
+        <NavLink
+          to="/dashboard/help"
+          className={({ isActive }) =>
+            `flex items-center gap-3 px-3 py-2 rounded-lg transition-transform duration-200 hover:translate-x-1 ${
+              isActive ? 'bg-white text-blue-800 font-bold' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'
+            }`
+          }
+        >
+          <span className="material-symbols-outlined text-[20px]">help</span>
+          <span className="text-sm">Help Center</span>
         </NavLink>
-        <Link to="/logout" className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all">
-          <span className="material-symbols-outlined text-xl text-error">logout</span>
-          <span>Logout</span>
+        <Link
+          to="/dashboard/logout"
+          className="flex items-center gap-3 px-3 py-2 text-error hover:bg-error-container/20 rounded-lg hover:translate-x-1 transition-transform duration-200"
+        >
+          <span className="material-symbols-outlined text-[20px]">logout</span>
+          <span className="text-sm">Logout</span>
         </Link>
       </div>
     </aside>

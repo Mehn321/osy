@@ -1,92 +1,214 @@
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
-  const stats = [
-    { label: 'Total OSY', value: '1,248', icon: 'groups', color: 'bg-primary-container', textColor: 'text-white' },
-    { label: 'In Training', value: '312', icon: 'school', color: 'bg-tertiary-container', textColor: 'text-on-tertiary-container' },
-    { label: 'Employed', value: '456', icon: 'work', color: 'bg-secondary-container', textColor: 'text-on-secondary-container' },
-    { label: 'Pending', value: '480', icon: 'pending_actions', color: 'bg-surface-container-high', textColor: 'text-primary' },
-  ];
-
-  const recentActivities = [
-    { id: 1, user: 'Juan Dela Cruz', action: 'Completed NC II Welding', time: '2 hours ago', icon: 'check_circle', iconColor: 'text-green-500' },
-    { id: 2, user: 'Maria Santos', action: 'Enrolled in Safety Workshop', time: '5 hours ago', icon: 'edit_note', iconColor: 'text-blue-500' },
-    { id: 3, user: 'System', action: 'Generated Monthly Report', time: '1 day ago', icon: 'analytics', iconColor: 'text-purple-500' },
-    { id: 4, user: 'Ricardo Bautista', action: 'Matched with Infrastructure Project', time: '2 days ago', icon: 'handshake', iconColor: 'text-orange-500' },
-  ];
-
   return (
     <>
-      <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
-        <span className="material-symbols-outlined text-sm">chevron_right</span>
-        <span className="text-primary">Dashboard Overview</span>
-      </nav>
+      {/* Welcome Header */}
+      <div className="mb-10">
+        <h2 className="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Welcome back, Barangay Staff!</h2>
+        <p className="text-on-surface-variant font-medium">Monitoring the Out-of-School Youth status and progress in Civic Horizon.</p>
+      </div>
 
-      <header className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-primary">Dashboard</h1>
-        <p className="text-on-surface-variant">Welcome back, Administrator. Here's what's happening today.</p>
-      </header>
+      {/* Top Row: Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/15 flex items-start justify-between">
+          <div>
+            <p className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Total OSY</p>
+            <h3 className="text-4xl font-black text-primary">142</h3>
+            <p className="text-xs text-tertiary-container font-medium mt-2 flex items-center gap-1">
+              <span className="material-symbols-outlined text-sm">trending_up</span> +3% from last month
+            </p>
+          </div>
+          <div className="p-3 bg-primary/5 rounded-lg text-primary">
+            <span className="material-symbols-outlined text-3xl">groups</span>
+          </div>
+        </div>
+        <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/15 flex items-start justify-between">
+          <div>
+            <p className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Opportunities</p>
+            <h3 className="text-4xl font-black text-primary">12</h3>
+            <p className="text-xs text-on-surface-variant font-medium mt-2">Active training & jobs</p>
+          </div>
+          <div className="p-3 bg-secondary-container/20 rounded-lg text-secondary">
+            <span className="material-symbols-outlined text-3xl">work_history</span>
+          </div>
+        </div>
+        <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/15 flex items-start justify-between">
+          <div>
+            <p className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Matches Made</p>
+            <h3 className="text-4xl font-black text-primary">48</h3>
+            <p className="text-xs text-tertiary-container font-medium mt-2 flex items-center gap-1">
+              <span className="material-symbols-outlined text-sm">check_circle</span> 8 new matches today
+            </p>
+          </div>
+          <div className="p-3 bg-tertiary-fixed/30 rounded-lg text-tertiary">
+            <span className="material-symbols-outlined text-3xl">handshake</span>
+          </div>
+        </div>
+        <div className="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/15 flex items-start justify-between">
+          <div>
+            <p className="text-sm font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Notifications</p>
+            <h3 className="text-4xl font-black text-primary">320</h3>
+            <p className="text-xs text-on-surface-variant font-medium mt-2">Sent to residents</p>
+          </div>
+          <div className="p-3 bg-error-container/20 rounded-lg text-error">
+            <span className="material-symbols-outlined text-3xl">campaign</span>
+          </div>
+        </div>
+      </div>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        {stats.map((stat, idx) => (
-          <div key={idx} className="p-6 rounded-xl glass-panel border border-outline-variant/15 shadow-sm flex flex-col gap-2">
-            <div className={`w-12 h-12 rounded-full ${stat.color} flex items-center justify-center ${stat.textColor} mb-2`}>
-              <span className="material-symbols-outlined text-2xl">{stat.icon}</span>
+      {/* Mid Row: Charts (Asymmetric Layout) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+        {/* Bar Chart Simulation */}
+        <div className="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/15">
+          <div className="flex justify-between items-center mb-8">
+            <h4 className="text-lg font-bold text-on-surface">Skill Category Distribution</h4>
+            <Link to="/dashboard/reports" className="text-sm font-semibold text-primary flex items-center gap-1">View Full Report <span className="material-symbols-outlined text-sm">arrow_forward</span></Link>
+          </div>
+          <div className="flex items-end gap-6 h-64">
+            <div className="flex-1 flex flex-col items-center gap-4 group">
+              <div className="w-full bg-primary-container/20 rounded-t-lg relative h-[70%] transition-all hover:bg-primary group-hover:scale-105">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">42</div>
+              </div>
+              <span className="text-xs font-bold text-on-surface-variant text-center">Computer Literacy</span>
             </div>
-            <span className="text-3xl font-black text-primary">{stat.value}</span>
-            <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant">{stat.label}</span>
+            <div className="flex-1 flex flex-col items-center gap-4 group">
+              <div className="w-full bg-primary-container/20 rounded-t-lg relative h-[45%] transition-all hover:bg-primary group-hover:scale-105">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">28</div>
+              </div>
+              <span className="text-xs font-bold text-on-surface-variant text-center">Carpentry</span>
+            </div>
+            <div className="flex-1 flex flex-col items-center gap-4 group">
+              <div className="w-full bg-primary-container/20 rounded-t-lg relative h-[85%] transition-all hover:bg-primary group-hover:scale-105">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">55</div>
+              </div>
+              <span className="text-xs font-bold text-on-surface-variant text-center">Cooking/NCII</span>
+            </div>
+            <div className="flex-1 flex flex-col items-center gap-4 group">
+              <div className="w-full bg-primary-container/20 rounded-t-lg relative h-[30%] transition-all hover:bg-primary group-hover:scale-105">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-on-surface text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">17</div>
+              </div>
+              <span className="text-xs font-bold text-on-surface-variant text-center">Tailoring</span>
+            </div>
           </div>
-        ))}
-      </section>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <section className="lg:col-span-2 space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-            <h2 className="text-xl font-bold text-on-surface">Skills Distribution</h2>
-            <Link to="/reports" className="text-sm font-bold text-primary hover:underline">View Analytics</Link>
+        {/* Pie Chart Simulation */}
+        <div className="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/15 flex flex-col">
+          <h4 className="text-lg font-bold text-on-surface mb-8">OSY Status</h4>
+          <div className="flex-1 flex items-center justify-center relative py-4">
+            {/* Custom Ring Chart */}
+            <div className="w-48 h-48 rounded-full border-[16px] border-surface-container flex items-center justify-center relative">
+              <div className="absolute inset-0 rounded-full border-[16px] border-primary border-t-transparent border-l-transparent -rotate-45"></div>
+              <div className="absolute inset-0 rounded-full border-[16px] border-tertiary-fixed-dim border-b-transparent border-r-transparent border-l-transparent rotate-45"></div>
+              <div className="text-center">
+                <span className="text-2xl font-black text-on-surface">142</span>
+                <p className="text-[10px] font-bold text-on-surface-variant uppercase">Total</p>
+              </div>
+            </div>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 space-y-4">
+          <div className="grid grid-cols-1 gap-2 mt-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-primary"></span>
+                <span className="text-xs font-medium">Active/Profiling</span>
+              </div>
+              <span className="text-xs font-bold">64</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></span>
+                <span className="text-xs font-medium">In Training</span>
+              </div>
+              <span className="text-xs font-bold">32</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full bg-surface-container-highest"></span>
+                <span className="text-xs font-medium">Employed</span>
+              </div>
+              <span className="text-xs font-bold">46</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Row: Table and Matches */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        {/* Recent Registrations */}
+        <div className="lg:col-span-3 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/15 overflow-hidden">
+          <div className="p-6 border-b border-surface-container flex justify-between items-center">
+            <h4 className="text-lg font-bold text-on-surface">Recent Registrations</h4>
+            <button className="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+              <span className="material-symbols-outlined text-on-surface-variant">more_horiz</span>
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="bg-surface-container-low/50">
+                  <th className="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Purok</th>
+                  <th className="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Date</th>
+                  <th className="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-surface-container-low">
+                {[
+                  { name: 'Juan Dela Cruz', initials: 'JD', purok: 'Purok 4', date: 'Oct 24, 2023', status: 'Verified', statusBg: 'bg-tertiary-fixed-dim/20', statusText: 'text-on-tertiary-fixed-variant' },
+                  { name: 'Maria Reyes', initials: 'MR', purok: 'Purok 1', date: 'Oct 23, 2023', status: 'Pending', statusBg: 'bg-secondary-fixed/30', statusText: 'text-on-secondary-fixed-variant' },
+                  { name: 'Antonio Santos', initials: 'AS', purok: 'Purok 7', date: 'Oct 22, 2023', status: 'Verified', statusBg: 'bg-tertiary-fixed-dim/20', statusText: 'text-on-tertiary-fixed-variant' },
+                ].map((row, i) => (
+                  <tr key={i} className="hover:bg-surface-container-low/30 transition-colors">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-8 h-8 rounded-full ${i % 2 === 0 ? 'bg-primary-fixed text-primary' : 'bg-secondary-fixed text-secondary'} flex items-center justify-center font-bold text-xs`}>{row.initials}</div>
+                        <span className="text-sm font-semibold">{row.name}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 text-sm">{row.purok}</td>
+                    <td className="px-6 py-4 text-sm text-on-surface-variant">{row.date}</td>
+                    <td className="px-6 py-4">
+                      <span className={`px-3 py-1 ${row.statusBg} ${row.statusText} text-[10px] font-bold rounded-full uppercase`}>{row.status}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Recent Matches */}
+        <div className="lg:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/15">
+          <h4 className="text-lg font-bold text-on-surface mb-6">Recent Skill Matches</h4>
+          <div className="space-y-6">
             {[
-              { skill: 'Construction', count: 450, percentage: 75 },
-              { skill: 'Hospitality', count: 300, percentage: 50 },
-              { skill: 'IT & Digital', count: 180, percentage: 30 },
-              { skill: 'Agriculture', count: 120, percentage: 20 },
-            ].map((item) => (
-              <div key={item.skill} className="space-y-2">
-                <div className="flex justify-between text-sm font-bold text-on-surface-variant">
-                  <span>{item.skill}</span>
-                  <span>{item.count} OSY</span>
+              { name: 'Juan Dela Cruz', sub: 'Training in NC II Cookery', score: 85 },
+              { name: 'Maria Reyes', sub: 'Office Admin Assistant', score: 92 },
+              { name: 'Antonio Santos', sub: 'TESDA Carpentry Course', score: 74 },
+            ].map((match, i) => (
+              <div key={i} className="flex items-center gap-4 group">
+                <div className="relative w-12 h-12 flex-shrink-0">
+                  <svg className="w-full h-full" viewBox="0 0 36 36">
+                    <circle className="stroke-surface-container" cx="18" cy="18" fill="none" r="16" strokeWidth="3"></circle>
+                    <circle className="stroke-primary" cx="18" cy="18" fill="none" r="16" strokeDasharray={`${match.score}, 100`} strokeLinecap="round" strokeWidth="3"></circle>
+                  </svg>
+                  <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black">{match.score}%</span>
                 </div>
-                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary" style={{ width: `${item.percentage}%` }}></div>
+                <div className="flex-1">
+                  <h5 className="text-sm font-bold leading-tight">{match.name}</h5>
+                  <p className="text-xs text-on-surface-variant">{match.sub}</p>
                 </div>
+                <button className="p-2 text-primary hover:bg-primary/10 rounded-full transition-all opacity-0 group-hover:opacity-100">
+                  <span className="material-symbols-outlined text-sm">send</span>
+                </button>
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-            <h2 className="text-xl font-bold text-on-surface">Recent Activity</h2>
-          </div>
-          <div className="space-y-4">
-            {recentActivities.map((activity) => (
-              <div key={activity.id} className="flex gap-4 p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/15 hover:shadow-md transition-shadow">
-                <span className={`material-symbols-outlined ${activity.iconColor}`}>{activity.icon}</span>
-                <div>
-                  <p className="text-sm font-bold text-on-surface">
-                    <span className="text-primary">{activity.user}</span> {activity.action}
-                  </p>
-                  <p className="text-[10px] text-on-surface-variant font-medium uppercase mt-1">{activity.time}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Link to="/notifications" className="w-full py-3 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center">
-            View All Activity
-          </Link>
-        </section>
+          <button className="w-full mt-8 py-3 bg-surface-container-low text-primary font-bold text-sm rounded-lg hover:bg-surface-container-high transition-colors">
+            View All Matches
+          </button>
+        </div>
       </div>
     </>
   );

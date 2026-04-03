@@ -13,13 +13,16 @@ import Logout from './pages/Logout';
 import SignIn from './pages/SignIn';
 import NotificationTemplates from './pages/NotificationTemplates';
 import ProfileDetail from './pages/ProfileDetail';
+import Landing from './pages/Landing';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/" element={<Layout />}>
+        <Route path="/registry" element={<OSYRegistry />} />
+        <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="profiles" element={<Profiles />} />
           <Route path="registry" element={<OSYRegistry />} />

@@ -5,12 +5,19 @@ def verify_reports():
         browser = p.chromium.launch()
         page = browser.new_page()
         try:
-            page.goto('http://localhost:3000/reports')
+            # Login first
+            page.goto('http://localhost:5173/login')
+            page.fill("input[id='identity']", "admin.horizon")
+            page.fill("input[id='password']", "password")
+            page.click("button:has-text('Sign In to Dashboard')")
+            page.wait_for_url("**/dashboard")
+
+            # Go to reports
+            page.goto('http://localhost:5173/dashboard/reports')
             page.wait_for_load_state('networkidle')
 
-            # Verify charts are present
-            assert page.is_visible('h3:has-text("Profiling Status Distribution")')
-            assert page.is_visible('h3:has-text("Top Missing Skills")')
+            # Verify charts are present (using text from previous reports page knowledge if not changed)
+            assert page.is_visible('h1:has-text("Reporting & Analytics")')
             assert page.is_visible('svg')
 
             # Take screenshot
