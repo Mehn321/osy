@@ -6,10 +6,10 @@ const ProfileDetail = () => {
   // Mock data for the detailed view
   const profile = {
     id: 1,
-    name: 'Juan Dela Cruz',
-    purok: 'Purok 4',
+    name: 'Santos, Ricardo M.',
+    purok: 'Purok 1',
     status: 'In Training',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA84JEAYl6UEpfG1OvGBO9VChlVpB0HWxDVimzwS7ilVyYzDQefBMKtiCiPlvi5zANhoxJHSC5TnHy9DS1x7SYx8SuM5BNkYuuj9O1PLt29zbKqfNR2WXuf_c67FPk2nGzVbuZG7RiECfLQeIegRBv5dSxqdJ4aBzieDfP6zAXECKLrhnCT6waUtzBFFAT6SNFGjgYf3Aqt8t7Q_0Gz4JrEuj7STjd69CHhyIjM3hDkJso8mV7B8XhmdlL07rsHkD6Cudq1P-UMsVCA',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDb1BrMIAZwuxfgJviEZK4G91QPPPQk-YzTloIz8ikZOji8S9Oxrhr3pVjZhdlAVGEG3XvJ0_icdzJlIb4w2UKJCqEwoF0_wSkyDVK5AvvoubyW_DkEDGSJiaTv2OMcd4zBVh13EDftOVDquT8VpFPvxEpuVgD7sXG0nFqcCTEqAn-ec_6uxaIbBzTZ70e1VhImDTq7NUTo57lihUtsZe7x_yNytxDXl284EgkpBs6tjKD8gRTF9bIZLLqv5NHzw6nLJoJLHg4nYA7T',
     education: {
       level: 'High School Graduate',
       school: 'Horizon National High School',
@@ -34,9 +34,9 @@ const ProfileDetail = () => {
   return (
     <div className="space-y-10 pb-20 max-w-5xl mx-auto">
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
+        <Link to="/dashboard" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
-        <Link to="/profiles" className="hover:text-primary transition-colors">OSY Profiles</Link>
+        <Link to="/dashboard/profiles" className="hover:text-primary transition-colors">OSY Profiles</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Standardized Education & Skills</span>
       </nav>

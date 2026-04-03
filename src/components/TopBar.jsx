@@ -2,38 +2,40 @@ import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   return (
-    <header className="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/15 shadow-sm shadow-blue-900/5 ml-0 md:pl-64">
-      <div className="flex items-center gap-4 flex-1">
-        <div className="relative max-w-md w-full">
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+    <header className="sticky top-0 z-50 flex justify-between items-center w-full px-8 py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/15 shadow-sm shadow-blue-900/5 ml-0 md:pl-64">
+      <div className="flex items-center gap-8">
+        <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent font-headline tracking-tight">Civic Horizon</span>
+        <div className="hidden md:flex relative group">
+          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
           <input
-            className="w-full bg-slate-100/50 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20"
-            placeholder="Search profiles or opportunities..."
+            className="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-80 focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+            placeholder="Search profiles or programs..."
             type="text"
           />
         </div>
       </div>
+
       <div className="flex items-center gap-4">
-        <Link to="/notifications" className="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors relative">
-          <span className="material-symbols-outlined">notifications</span>
-          <span className="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-        </Link>
-        <Link to="/settings" className="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
-          <span className="material-symbols-outlined">settings</span>
-        </Link>
-        <div className="h-8 w-px bg-slate-200 mx-2"></div>
-        <div className="flex items-center gap-3">
-          <div className="text-right hidden sm:block">
-            <p className="text-xs font-bold text-slate-900 leading-none">Admin User</p>
-            <p className="text-[10px] text-slate-500">Barangay Admin</p>
-          </div>
-          <Link to="/settings">
-            <img
-              alt="Administrator Profile"
-              className="w-9 h-9 rounded-full bg-slate-200 ring-2 ring-white hover:ring-primary/50 transition-all cursor-pointer"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIHD4hV9cLuLNRKnCnBgOYvDtLhQNb_UH8VqMX_sfFiQRp4kpOL5S10jT98KHHw00YNqKk-JLf4JOwsG6HHwxFTxsDWQsPZ2NWtKeSi_SWAFT5y9h2fIW9y3g3Sf6YcM_zukcK_PBJoDXRcT064lbF5qvH-KNM5_RObUfEIGtl_d6GRdvBFMdc4g_K9qS-BvpcwVBOL6MNxD1r8BJSFs3GeHXOr9S6fhzVlZGZlHm3oxzDQ1jGuut76zfoqQPLfJNEd8EBnWlPyG8H"
-            />
+        <div className="flex items-center gap-1">
+          <button className="p-2 text-slate-500 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+            <span className="material-symbols-outlined">notifications</span>
+            <span className="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+          </button>
+          <Link to="/dashboard/settings" className="p-2 text-slate-500 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+            <span className="material-symbols-outlined">settings</span>
           </Link>
+        </div>
+        <div className="h-8 w-px bg-slate-200 mx-2"></div>
+        <div className="flex items-center gap-3 pl-2">
+          <div className="text-right hidden sm:block">
+            <p className="text-xs font-bold text-on-surface leading-none">Barangay Staff</p>
+            <p className="text-[10px] text-slate-500">Administrator</p>
+          </div>
+          <img
+            alt="Administrator Profile"
+            className="w-9 h-9 rounded-full object-cover border-2 border-primary/10 shadow-sm"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnHbZgWcXSoI7xgcZm2-g3ZGxW2CU58fKOVsDZtsJg4a0iVbdTVUS34PkFm6Mz_S8gdij4_kIHq6eeHBuzY7OsAHrjakzyQYnmyDfmL5R18huOHAgWBH5Zf_xwLvFFN0CATal6U4zq80msOJIEHFjo92mQQMKHZEHSXqGojOsUpb3gsBYPQIr8BlW5_LNwIjYPTILPuexvmRgejbyG7n-Gpk3gsepMt42D-ZcY3fKNPFnsvk2sDWR9vBsgOn2g5nYM1wV2SanQ4mXL"
+          />
         </div>
       </div>
     </header>
