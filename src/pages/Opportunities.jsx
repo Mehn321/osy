@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Opportunities = () => {
   const [activeTab, setActiveTab] = useState('Training');
@@ -30,7 +31,7 @@ const Opportunities = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Opportunities</span>
       </nav>

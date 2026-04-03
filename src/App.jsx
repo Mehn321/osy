@@ -3,20 +3,24 @@ import Layout from './components/Layout';
 import MatchingPage from './pages/MatchingPage';
 import Dashboard from './pages/Dashboard';
 import Profiles from './pages/Profiles';
+import OSYRegistry from './pages/OSYRegistry';
 import Opportunities from './pages/Opportunities';
 import Notifications from './pages/Notifications';
 import Reports from './pages/Reports';
 import Help from './pages/Help';
 import Settings from './pages/Settings';
 import Logout from './pages/Logout';
+import SignIn from './pages/SignIn';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/login" element={<SignIn />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="profiles" element={<Profiles />} />
+          <Route path="registry" element={<OSYRegistry />} />
           <Route path="opportunities" element={<Opportunities />} />
           <Route path="matching" element={<MatchingPage />} />
           <Route path="notifications" element={<Notifications />} />

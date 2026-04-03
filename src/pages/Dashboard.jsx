@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Dashboard = () => {
   const stats = [
     { label: 'Total OSY', value: '1,248', icon: 'groups', color: 'bg-primary-container', textColor: 'text-white' },
@@ -16,7 +18,7 @@ const Dashboard = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Dashboard Overview</span>
       </nav>
@@ -42,7 +44,7 @@ const Dashboard = () => {
         <section className="lg:col-span-2 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-4">
             <h2 className="text-xl font-bold text-on-surface">Skills Distribution</h2>
-            <button className="text-sm font-bold text-primary hover:underline">View All</button>
+            <Link to="/reports" className="text-sm font-bold text-primary hover:underline">View All</Link>
           </div>
           <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 space-y-4">
             {[
@@ -81,9 +83,9 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-          <button className="w-full py-3 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-slate-200 transition-colors">
+          <Link to="/notifications" className="w-full py-3 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center">
             View All Activity
-          </button>
+          </Link>
         </section>
       </div>
     </>

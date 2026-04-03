@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MatchingPage = () => {
   const [minScore, setMinScore] = useState(75);
@@ -59,7 +60,7 @@ const MatchingPage = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Skills Alignment Analysis</span>
       </nav>
@@ -244,11 +245,11 @@ const MatchingPage = () => {
                     Gap: {candidate.gap}
                   </div>
                 </div>
-                <a className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group/link" href="#">
+                <Link to="/opportunities" className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline group/link">
                   <span className="material-symbols-outlined text-sm">school</span>
                   Available: {candidate.training}
                   <span className="material-symbols-outlined text-xs group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
+                </Link>
               </div>
               <div className="flex gap-2 w-full md:w-auto">
                 <button

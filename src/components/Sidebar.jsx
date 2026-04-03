@@ -1,8 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-  const location = useLocation();
-
   const navItems = [
     { name: 'Dashboard', icon: 'dashboard', path: '/' },
     { name: 'OSY Profiles', icon: 'group', path: '/profiles' },
@@ -11,8 +9,6 @@ const Sidebar = () => {
     { name: 'Notifications', icon: 'notifications', path: '/notifications' },
     { name: 'Reports', icon: 'assessment', path: '/reports' },
   ];
-
-  const isActive = (path) => location.pathname === path;
 
   return (
     <aside className="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-slate-50 dark:bg-slate-950 w-64 border-r border-slate-200/15 z-[60] font-inter text-sm antialiased">
@@ -30,23 +26,30 @@ const Sidebar = () => {
       </Link>
       <nav className="flex-1 space-y-1">
         {navItems.map((item) => (
-          <Link
+          <NavLink
             key={item.name}
             to={item.path}
-            className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:translate-x-1 transition-all ${
-              isActive(item.path)
-                ? 'bg-white dark:bg-slate-900 text-primary dark:text-blue-300 font-bold shadow-sm'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'
-            }`}
+            end={item.path === '/'}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-3 py-2 rounded-lg hover:translate-x-1 transition-all ${
+                isActive
+                  ? 'bg-white dark:bg-slate-900 text-primary dark:text-blue-300 font-bold shadow-sm'
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50'
+              }`
+            }
           >
-            <span
-              className="material-symbols-outlined text-xl"
-              style={isActive(item.path) ? { fontVariationSettings: "'FILL' 1" } : {}}
-            >
-              {item.icon}
-            </span>
-            <span>{item.name}</span>
-          </Link>
+            {({ isActive }) => (
+              <>
+                <span
+                  className="material-symbols-outlined text-xl"
+                  style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}
+                >
+                  {item.icon}
+                </span>
+                <span>{item.name}</span>
+              </>
+            )}
+          </NavLink>
         ))}
       </nav>
       <div className="mt-auto pt-4 border-t border-slate-200/10 space-y-1">
@@ -57,12 +60,12 @@ const Sidebar = () => {
           <span className="material-symbols-outlined text-lg">bolt</span>
           <span>Match Skills</span>
         </Link>
-        <Link to="/help" className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all ${
-          isActive('/help') ? 'bg-white text-primary font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'
+        <NavLink to="/help" className={({ isActive }) => `flex items-center gap-3 px-3 py-2 rounded-lg transition-all ${
+          isActive ? 'bg-white text-primary font-bold shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200/50'
         }`}>
           <span className="material-symbols-outlined text-xl">help</span>
           <span>Help Center</span>
-        </Link>
+        </NavLink>
         <Link to="/logout" className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-lg transition-all">
           <span className="material-symbols-outlined text-xl text-error">logout</span>
           <span>Logout</span>

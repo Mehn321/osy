@@ -10,7 +10,7 @@ const Logout = () => {
         <h1 className="text-3xl font-extrabold text-primary mb-2">Logged Out</h1>
         <p className="text-on-surface-variant mb-8 font-medium">You have been safely signed out of the Barangay OSY Profiling System.</p>
         <Link
-          to="/"
+          to="/login"
           className="block w-full py-4 bg-primary text-white font-bold rounded-2xl hover:shadow-lg transition-all"
         >
           Sign In Again
