@@ -3,11 +3,7 @@
 > vite --port 5173
 
 
-  VITE v5.4.21  ready in 366 ms
+  VITE v5.4.21  ready in 372 ms
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
-1:23:29 AM [vite] hmr update /src/pages/ProfileDetail.jsx, /src/index.css
-1:23:29 AM [vite] hmr update /src/pages/ProfileDetail.jsx, /src/index.css
-1:24:53 AM [vite] hmr update /src/pages/Profiles.jsx, /src/index.css
-1:48:29 AM [vite] hmr update /src/App.jsx, /src/index.css
