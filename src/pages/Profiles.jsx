@@ -1,13 +1,50 @@
+import { useState, useMemo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Profiles = () => {
   const navigate = useNavigate();
+
+  const [filters, setFilters] = useState({
+    purok: 'All Puroks',
+    gender: 'All Genders',
+    education: 'Any Level',
+    status: 'All Status',
+    search: ''
+  });
+
   const osyProfiles = [
-    { id: 1, name: 'Santos, Ricardo M.', email: 'rsantos.osy@email.com', age: 21, purok: 'Purok 1', skill: 'Automotive', status: 'Active', statusBg: 'bg-tertiary-fixed-dim', statusText: 'text-on-tertiary-fixed', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDb1BrMIAZwuxfgJviEZK4G91QPPPQk-YzTloIz8ikZOji8S9Oxrhr3pVjZhdlAVGEG3XvJ0_icdzJlIb4w2UKJCqEwoF0_wSkyDVK5AvvoubyW_DkEDGSJiaTv2OMcd4zBVh13EDftOVDquT8VpFPvxEpuVgD7sXG0nFqcCTEqAn-ec_6uxaIbBzTZ70e1VhImDTq7NUTo57lihUtsZe7x_yNytxDXl284EgkpBs6tjKD8gRTF9bIZLLqv5NHzw6nLJoJLHg4nYA7T' },
-    { id: 2, name: 'Dela Cruz, Maria Elena', email: 'm.delacruz@email.com', age: 19, purok: 'Purok 3', skill: 'Culinary', status: 'Employed', statusBg: 'bg-secondary-container', statusText: 'text-on-secondary-container', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBh4BXWmBawY9xlmTWEEvC-LrIlT7_tseJA9LhPEQUOwSTlu13IKb6jeqpxfBLnIgCGURu-SvhPkKHWkIbK4-cyvmq6NlM0gdzJKTCdFejIpDBvtBH5FF2prDTF3a7MUBUs_GyrIkArJj-V9Z5p2jJ0mlhP1ibyxMCEWi2kI5yQ35TDQQ195hG69EV1iR-Li5rlTq0mJ4Yzri8CU6LooqKOM6dlKFxXHNngdhU3T_KyNpi6fv5l7guJW54uYc2G9LxWsZf_oUH44Uy3' },
-    { id: 3, name: 'Garcia, Roberto L.', email: 'garcia.rob@email.com', age: 17, purok: 'Purok 2', skill: 'IT Support', status: 'Active', statusBg: 'bg-tertiary-fixed-dim', statusText: 'text-on-tertiary-fixed', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVGm19z5I083fELe3-XeX1XowffQl9RBaHpjq5M1hcGBnKJDOXfVNTnGKehVKW7tfhNXwk3_9YxaagXP6s8KOR3vNctQgDrp94vg9ZbHx9axQyfXC_z3_vUvLfVVKJKByZEIYVlsexi3nlTR9DHjok09x2-EeypsnK2KQZTe1vNPLEl4k-RsafMx3Uu1jucxBV4FJO18CAgobvGfGANDuE6cHCrSM5RNrDh7347Ec8b_i9GmaPnw6HLaGt607CejoLTvFfMAP3Gbkm' },
-    { id: 4, name: 'Lozano, Patricia C.', email: 'p.lozano@email.com', age: 22, purok: 'Purok 1', skill: 'Hospitality', status: 'Inactive', statusBg: 'bg-error-container', statusText: 'text-on-error-container', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBM8MiKd1BCMjdW4BUmVrq7G3GQjws-7LcO9ZocrvHGZFcacqwdLC7jeyfb3yfTHGogmVphj0GcuUCinaO8F4I2NLVyoXiZcX-0Nc95xYft_Mrl376wwqfYl7Q5XG6aZK-MGHvS4BQZFgVcaq1bDz8EZuUy6eazUEbRckM1cGLFA-LHNlGfxg2i6JaJ2iK6JFuOWZECoeA1kkpvevBjJSdYlNW85NCWkIvh7WBCOj56DotdRrJXOj7E7AM1TvhijZNHp18tMsq7FDe9' },
+    { id: 1, name: 'Santos, Ricardo M.', email: 'rsantos.osy@email.com', age: 21, gender: 'Male', education: 'High School Graduate', purok: 'Purok 1', skill: 'Automotive', status: 'Active', statusBg: 'bg-tertiary-fixed-dim', statusText: 'text-on-tertiary-fixed', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDb1BrMIAZwuxfgJviEZK4G91QPPPQk-YzTloIz8ikZOji8S9Oxrhr3pVjZhdlAVGEG3XvJ0_icdzJlIb4w2UKJCqEwoF0_wSkyDVK5AvvoubyW_DkEDGSJiaTv2OMcd4zBVh13EDftOVDquT8VpFPvxEpuVgD7sXG0nFqcCTEqAn-ec_6uxaIbBzTZ70e1VhImDTq7NUTo57lihUtsZe7x_yNytxDXl284EgkpBs6tjKD8gRTF9bIZLLqv5NHzw6nLJoJLHg4nYA7T' },
+    { id: 2, name: 'Dela Cruz, Maria Elena', email: 'm.delacruz@email.com', age: 19, gender: 'Female', education: 'Elementary Graduate', purok: 'Purok 3', skill: 'Culinary', status: 'Employed', statusBg: 'bg-secondary-container', statusText: 'text-on-secondary-container', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBh4BXWmBawY9xlmTWEEvC-LrIlT7_tseJA9LhPEQUOwSTlu13IKb6jeqpxfBLnIgCGURu-SvhPkKHWkIbK4-cyvmq6NlM0gdzJKTCdFejIpDBvtBH5FF2prDTF3a7MUBUs_GyrIkArJj-V9Z5p2jJ0mlhP1ibyxMCEWi2kI5yQ35TDQQ195hG69EV1iR-Li5rlTq0mJ4Yzri8CU6LooqKOM6dlKFxXHNngdhU3T_KyNpi6fv5l7guJW54uYc2G9LxWsZf_oUH44Uy3' },
+    { id: 3, name: 'Garcia, Roberto L.', email: 'garcia.rob@email.com', age: 17, gender: 'Male', education: 'High School Undergraduate', purok: 'Purok 2', skill: 'IT Support', status: 'Active', statusBg: 'bg-tertiary-fixed-dim', statusText: 'text-on-tertiary-fixed', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVGm19z5I083fELe3-XeX1XowffQl9RBaHpjq5M1hcGBnKJDOXfVNTnGKehVKW7tfhNXwk3_9YxaagXP6s8KOR3vNctQgDrp94vg9ZbHx9axQyfXC_z3_vUvLfVVKJKByZEIYVlsexi3nlTR9DHjok09x2-EeypsnK2KQZTe1vNPLEl4k-RsafMx3Uu1jucxBV4FJO18CAgobvGfGANDuE6cHCrSM5RNrDh7347Ec8b_i9GmaPnw6HLaGt607CejoLTvFfMAP3Gbkm' },
+    { id: 4, name: 'Lozano, Patricia C.', email: 'p.lozano@email.com', age: 22, gender: 'Female', education: 'High School Graduate', purok: 'Purok 1', skill: 'Hospitality', status: 'Inactive', statusBg: 'bg-error-container', statusText: 'text-on-error-container', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBM8MiKd1BCMjdW4BUmVrq7G3GQjws-7LcO9ZocrvHGZFcacqwdLC7jeyfb3yfTHGogmVphj0GcuUCinaO8F4I2NLVyoXiZcX-0Nc95xYft_Mrl376wwqfYl7Q5XG6aZK-MGHvS4BQZFgVcaq1bDz8EZuUy6eazUEbRckM1cGLFA-LHNlGfxg2i6JaJ2iK6JFuOWZECoeA1kkpvevBjJSdYlNW85NCWkIvh7WBCOj56DotdRrJXOj7E7AM1TvhijZNHp18tMsq7FDe9' },
   ];
+
+  const filteredProfiles = useMemo(() => {
+    return osyProfiles.filter(osy => {
+      const matchesSearch = osy.name.toLowerCase().includes(filters.search.toLowerCase()) ||
+                           osy.email.toLowerCase().includes(filters.search.toLowerCase());
+      const matchesPurok = filters.purok === 'All Puroks' || osy.purok === filters.purok.split(' - ')[0];
+      const matchesGender = filters.gender === 'All Genders' || osy.gender === filters.gender;
+      const matchesEducation = filters.education === 'Any Level' || osy.education === filters.education;
+      const matchesStatus = filters.status === 'All Status' || osy.status === filters.status;
+
+      return matchesSearch && matchesPurok && matchesGender && matchesEducation && matchesStatus;
+    });
+  }, [filters, osyProfiles]);
+
+  const handleFilterChange = (key, value) => {
+    setFilters(prev => ({ ...prev, [key]: value }));
+  };
+
+  const resetFilters = () => {
+    setFilters({
+      purok: 'All Puroks',
+      gender: 'All Genders',
+      education: 'Any Level',
+      status: 'All Status',
+      search: ''
+    });
+  };
 
   return (
     <div className="space-y-8">
@@ -30,18 +67,32 @@ const Profiles = () => {
 
       {/* Filters Section */}
       <div className="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/15 shadow-sm space-y-4">
+        <div className="relative mb-2">
+          <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+          <input
+            type="text"
+            placeholder="Search profiles by name or email..."
+            className="w-full bg-surface-container-low border-none rounded-xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-primary transition-all"
+            value={filters.search}
+            onChange={(e) => handleFilterChange('search', e.target.value)}
+          />
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: 'Purok / Zone', options: ['All Puroks', 'Purok 1 - Maligaya', 'Purok 2 - Pag-asa', 'Purok 3 - Masagana'] },
-            { label: 'Sex / Gender', options: ['All Genders', 'Male', 'Female', 'Other'] },
-            { label: 'Education Level', options: ['Any Level', 'Elementary Undergraduate', 'Elementary Graduate', 'High School Undergraduate', 'High School Graduate'] },
-            { label: 'Employment Status', options: ['All Status', 'Active', 'Employed', 'In Training', 'Inactive'] },
-          ].map((filter) => (
-            <div key={filter.label} className="space-y-1.5">
-              <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider pl-1">{filter.label}</label>
+            { key: 'purok', label: 'Purok / Zone', options: ['All Puroks', 'Purok 1 - Maligaya', 'Purok 2 - Pag-asa', 'Purok 3 - Masagana'] },
+            { key: 'gender', label: 'Sex / Gender', options: ['All Genders', 'Male', 'Female', 'Other'] },
+            { key: 'education', label: 'Education Level', options: ['Any Level', 'Elementary Undergraduate', 'Elementary Graduate', 'High School Undergraduate', 'High School Graduate'] },
+            { key: 'status', label: 'Employment Status', options: ['All Status', 'Active', 'Employed', 'In Training', 'Inactive'] },
+          ].map((f) => (
+            <div key={f.label} className="space-y-1.5">
+              <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider pl-1">{f.label}</label>
               <div className="relative">
-                <select className="w-full bg-surface-container-low border-none rounded-xl py-2.5 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary appearance-none cursor-pointer">
-                  {filter.options.map((opt) => <option key={opt}>{opt}</option>)}
+                <select
+                  className="w-full bg-surface-container-low border-none rounded-xl py-2.5 pl-4 pr-10 text-sm focus:ring-2 focus:ring-primary appearance-none cursor-pointer"
+                  value={filters[f.key]}
+                  onChange={(e) => handleFilterChange(f.key, e.target.value)}
+                >
+                  {f.options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
                 <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
               </div>
@@ -49,8 +100,11 @@ const Profiles = () => {
           ))}
         </div>
         <div className="flex items-center justify-between pt-2 border-t border-outline-variant/10">
-          <span className="text-sm text-on-surface-variant">Showing <span className="font-bold text-primary">24</span> results found in database.</span>
-          <button className="text-primary text-sm font-semibold flex items-center gap-1 hover:underline">
+          <span className="text-sm text-on-surface-variant">Showing <span className="font-bold text-primary">{filteredProfiles.length}</span> results found in database.</span>
+          <button
+            onClick={resetFilters}
+            className="text-primary text-sm font-semibold flex items-center gap-1 hover:underline"
+          >
             <span className="material-symbols-outlined text-[18px]">restart_alt</span>
             Reset Filters
           </button>
@@ -73,8 +127,8 @@ const Profiles = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-outline-variant/10">
-              {osyProfiles.map((osy, i) => (
-                <tr key={i} className="hover:bg-slate-50 transition-colors group">
+              {filteredProfiles.length > 0 ? filteredProfiles.map((osy, i) => (
+                <tr key={osy.id} className="hover:bg-slate-50 transition-colors group">
                   <td className="px-6 py-4">
                     <img alt="Profile" className="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-sm" src={osy.image} />
                   </td>
@@ -99,22 +153,30 @@ const Profiles = () => {
                     </button>
                   </td>
                 </tr>
-              ))}
+              )) : (
+                <tr>
+                  <td colSpan="7" className="px-6 py-12 text-center">
+                    <div className="flex flex-col items-center justify-center text-on-surface-variant">
+                      <span className="material-symbols-outlined text-4xl mb-2 opacity-20">person_search</span>
+                      <p className="font-medium">No profiles found matching your filters</p>
+                      <button onClick={resetFilters} className="text-primary text-sm font-bold mt-2 hover:underline">Clear all filters</button>
+                    </div>
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
 
         {/* Pagination */}
         <div className="px-6 py-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-sm text-on-surface-variant">Showing 1 to 10 of 24 entries</span>
+          <span className="text-sm text-on-surface-variant">Showing {filteredProfiles.length > 0 ? '1' : '0'} to {filteredProfiles.length} of {filteredProfiles.length} entries</span>
           <div className="flex items-center gap-1">
             <button className="p-2 text-on-surface-variant hover:bg-white rounded-lg transition-colors disabled:opacity-30" disabled>
               <span className="material-symbols-outlined">chevron_left</span>
             </button>
             <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold shadow-sm">1</button>
-            <button className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant transition-colors">2</button>
-            <button className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant transition-colors">3</button>
-            <button className="p-2 text-on-surface-variant hover:bg-white rounded-lg transition-colors">
+            <button className="p-2 text-on-surface-variant hover:bg-white rounded-lg transition-colors disabled:opacity-30" disabled>
               <span className="material-symbols-outlined">chevron_right</span>
             </button>
           </div>

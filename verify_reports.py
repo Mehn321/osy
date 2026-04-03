@@ -1,9 +1,11 @@
 from playwright.sync_api import sync_playwright
+import os
 
 def verify_reports():
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
+        os.makedirs("verification", exist_ok=True)
         try:
             # Login first
             page.goto('http://localhost:5173/login')
@@ -21,7 +23,7 @@ def verify_reports():
             assert page.is_visible('svg')
 
             # Take screenshot
-            page.screenshot(path='/home/jules/verification/reports_visual.png', full_page=True)
+            page.screenshot(path='verification/reports_visual.png', full_page=True)
             print("Reports page verification successful. Screenshot saved.")
         finally:
             browser.close()
