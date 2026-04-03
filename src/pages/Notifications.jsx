@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Notifications = () => {
   const notifications = [
     { id: 1, title: 'Matching Successful', message: '12 new candidates matched with the Welding training program.', time: '1 hour ago', icon: 'psychology', unread: true },
@@ -9,7 +11,7 @@ const Notifications = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Notifications</span>
       </nav>

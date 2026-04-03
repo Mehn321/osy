@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Help = () => {
   const faqs = [
     { q: 'How do I add a new OSY profile?', a: 'Go to the OSY Profiles page and click the "Add New Profile" button at the top right.' },
@@ -9,7 +11,7 @@ const Help = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">Help Center</span>
       </nav>

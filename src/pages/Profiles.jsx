@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Profiles = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,7 +32,7 @@ const Profiles = () => {
   return (
     <>
       <nav className="flex items-center gap-2 text-sm text-on-surface-variant font-medium mb-2">
-        <span>Barangay OSY</span>
+        <Link to="/" className="hover:text-primary transition-colors">Barangay OSY</Link>
         <span className="material-symbols-outlined text-sm">chevron_right</span>
         <span className="text-primary">OSY Profiles</span>
       </nav>
@@ -41,10 +42,10 @@ const Profiles = () => {
           <h1 className="text-3xl font-extrabold tracking-tight text-primary">OSY Profiles</h1>
           <p className="text-on-surface-variant">Manage and track out-of-school youth registrations.</p>
         </div>
-        <button className="px-6 py-3 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg transition-all">
+        <Link to="/registry" className="px-6 py-3 bg-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:shadow-lg transition-all">
           <span className="material-symbols-outlined">person_add</span>
           Add New Profile
-        </button>
+        </Link>
       </header>
 
       <section className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 mb-8 shadow-sm">
